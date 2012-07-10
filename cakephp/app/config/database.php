@@ -57,10 +57,10 @@ class DATABASE_CONFIG
 {
 	var $default = array('driver' => 'mysql',
 								'connect' => 'mysql_connect',
-								'host' => 'localhostmysql430.db.sakura.ne.jp',
-								'login' => 'user',
-								'password' => 'password',
-								'database' => 'project_name',
+								'host' => 'mysql430.db.sakura.ne.jp',
+								'login' => 'beyondcloud',
+								'password' => 'b8y92pfb6e',
+								'database' => 'beyondcloud_db_001',
 								'prefix' => '');
 
 	var $test = array('driver' => 'mysql',
