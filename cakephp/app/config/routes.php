@@ -1,46 +1,44 @@
 <?php
-/* SVN FILE: $Id: routes.php 6305 2008-01-02 02:33:56Z phpnut $ */
 /**
- * Short description for file.
+ * Routes configuration
  *
  * In this file, you set up routes to your controllers and their actions.
  * Routes are very important mechanism that allows you to freely connect
  * different urls to chosen controllers and their actions (functions).
  *
- * PHP versions 4 and 5
+ * PHP 5
  *
- * CakePHP(tm) :  Rapid Development Framework <http://www.cakephp.org/>
- * Copyright 2005-2008, Cake Software Foundation, Inc.
- *								1785 E. Sahara Avenue, Suite 490-204
- *								Las Vegas, Nevada 89104
+ * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
+ * Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
  * Licensed under The MIT License
  * Redistributions of files must retain the above copyright notice.
  *
- * @filesource
- * @copyright		Copyright 2005-2008, Cake Software Foundation, Inc.
- * @link				http://www.cakefoundation.org/projects/info/cakephp CakePHP(tm) Project
- * @package			cake
- * @subpackage		cake.app.config
- * @since			CakePHP(tm) v 0.2.9
- * @version			$Revision: 6305 $
- * @modifiedby		$LastChangedBy: phpnut $
- * @lastmodified	$Date: 2008-01-01 21:33:56 -0500 (Tue, 01 Jan 2008) $
- * @license			http://www.opensource.org/licenses/mit-license.php The MIT License
+ * @copyright     Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @link          http://cakephp.org CakePHP(tm) Project
+ * @package       app.Config
+ * @since         CakePHP(tm) v 0.2.9
+ * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 /**
  * Here, we are connecting '/' (base path) to controller called 'Pages',
  * its action called 'display', and we pass a param to select the view file
- * to use (in this case, /app/views/pages/home.thtml)...
+ * to use (in this case, /app/View/Pages/home.ctp)...
  */
-	$Route->connect('/', array('controller' => 'pages', 'action' => 'display', 'home'));
+	Router::connect('/', array('controller' => 'pages', 'action' => 'display', 'home'));
 /**
  * ...and connect the rest of 'Pages' controller's urls.
  */
-	$Route->connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
+	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
+
 /**
- * Then we connect url '/test' to our test controller. This is helpfull in
- * developement.
+ * Load all plugin routes.  See the CakePlugin documentation on 
+ * how to customize the loading of plugin routes.
  */
-	$Route->connect('/tests', array('controller' => 'tests', 'action' => 'index'));
-?>
+	CakePlugin::routes();
+
+/**
+ * Load the CakePHP default routes. Remove this if you do not want to use
+ * the built-in default routes.
+ */
+	require CAKE . 'Config' . DS . 'routes.php';
